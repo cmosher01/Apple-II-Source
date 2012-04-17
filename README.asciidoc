@@ -1,0 +1,12 @@
+Apple ][ Source
+===============
+Christopher A. Mosher <chris@mosher.mine.nu>
+
+== Introduction
+
+This package contains reverse-engineered source code for
+the System Software and Disk Operating System Software
+of the Apple ][ series computers from Apple, Inc.
+
+The source code is intended to be processed by +m4+ and
+assembled by http://www.floodgap.com/retrotech/xa/[+xa65+ Assembler].
