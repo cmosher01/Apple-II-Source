@@ -1,0 +1,185 @@
+
+
+Apple ][ DOS 3
+
+
+
+This directory contains 6502 assembly source files to build the
+Apple ][ Disk Operating System, most commonly known as DOS 3.3.
+
+This file is intended for The www.cc65.org Assembler.
+It can be assembled with a command line such as:
+
+ca65 -t apple2 -o dos332.obj -D VERSION=332 dos33.a65
+
+This file can build any of the following versions of Apple ][ DOS,
+by defining the corresponding label:
+
+version       release date   define VERSION as:
+DOS 3.1       1978-07-20     310
+DOS 3.2       1979-02-16     320
+DOS 3.2.1     1979-07-31     321
+DOS 3.3 (0)   1980-08-25     330
+DOS 3.3 (1)   1983-01-01     331
+DOS 3.3 (2)   1983-08-??     332
+
+Alternatively, you can define FRANKLIN to get
+the Franklin Ace version of DOS 3.3
+
+In addition, you can define NODELAY (for any version)
+to remove the disk drive delay sections of code. The
+resulting image will not work on real Apple's, but
+should work in most emulators, and will speed up disk
+access (read, write, arm seek).
+
+
+
+
+The original version appears to have come from a set of disks
+entitled "DOS Anatomy," from Windsor Scientific, Ltd.
+
+
+
+
+
+
+
+This is from the Apple ][ FAQ at
+http://home.swbell.net/rubywand/
+under Csa2DOSMM, question 17
+-----------------------------------------------------------
+From: Edhel Iaur, Esq.
+
+017- How many 'official' versions of DOS 3.3 are there
+and how can I tell which is running?
+
+According to The Dostalk Scrapbook, there are 3 official (as in Apple made
+'em, I think) versions of DOS 3.3.  PEEK (46725) supposedly tells you which is
+running:
+
+165: oldest  (1980)
+186: better  (January 1, 1983)
+182: latest  (?)
+
+I remember one had something to do with the way text files are handled.
+
+---------------------
+
+From: Dave Althoff
+
+The second version would be the IIe release ("DOS 3.3e") which contains yet another
+APPEND patch, and an additional bit of code which shuts off the 80-column
+firmware during boot. That version comes on a new System Master which uses the
+LOADER.OBJ0 program to fast-load INTBASIC (or FPBASIC), and a revised "HELLO"
+program which displays the "BE SURE CAPS LOCK IS DOWN" reminder on a IIe.
+
+---------------------
+
+From: Rubywand and Olcott
+
+One big problem with DOS 3.3e is that it uses some memory in the DOS area which
+the 1980 release leaves alone. This means it can not be safely patched with Beagle's
+"Prontodos" speed-up mods.
+
+With the newer DOS,  you get an APPEND patch (which turns out to introduce a new
+APPEND bug),  a few IIe display frills, and a DOS which is _much_ slower than the 1980
+DOS 3.3 patched for Prontodos.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+From Apple Assembly Line, Vol. 3, Issue 12, Sept. 1983:
+
+Yet Another New Version of DOS 3.3 	Bob Sander-Cederlof
+
+In the July issue of AAL I outlined the changes Apple made to DOS 3.3 early this year.
+Today I received a new "Developer's System Master", with a cover letter claiming another
+correction to the APPEND routine. The letter binds developers to begin using the new
+version no later than November 1st.
+
+If you like APPEND, or would like to like it, you might want to make these patches in
+your own system master. I am going to assume you already have the "early 1983" version,
+either because you bought a //e or a disk drive this year, or you copied one from a friend,
+or you made the patches from my July article. Here are the new changes:
+
+"early 1983"                August, 1983
+---------------------      -----------------------
+B683:4C 84 BA JMP $BA84    B683:4C B3 B6 JMP $B6B3
+
+$B6B3-B6CE:ALL ZEROES      B6B3:AD BD B5 LDA $B5BD
+                           B6B6:8D E6 B5 STA $B5E6
+                           B6B9:8D EA B5 STA $B5EA
+                           B6BC:AD BE B5 LDA $B5BE
+                           B6BF:8D E7 B5 STA $B5E7
+                           B6C2:8D EB B5 STA $B5EB
+                           B6C5:8D E4 B5 STA $B5E4
+                           B6C8:BA       TSX
+                           B6C9:8E 9B B3 STX $B39B
+                           B6CC:4C 7F B3 JMP $B37F
+
+$BA84-BA93:PATCH           BA84-BA93:ALL ZEROES
+
+What Apple has done is move the patch they had put at $BA84 down to $B6B3 and added four
+extra lines to that patch. I HOPE IT IS NOW CORRECT!
+
+
+
+
+
+
+
+
+
+
+
+
+
+Chris Mosher's observations:
+Location $B685 is in the boot sector, T$00, S$00,
+and is the high byte of the address of a JMP instruction.
+Values are as follows
+From the first part, values in hex:
+1980: $A5
+1983: $BA
+1986: $B6
+
+According to the above list, then, the original source code
+would be for the last version, shown as "latest" or "1986".
+This is consistent with the fact that I found a disk
+image documented as being the "last" version of DOS 3.3,
+never officially released but available through some
+Nibble magazine #47, in 1986. On that boot
+image, the JMP instruction jumps to $36B3, the high
+order byte being $36, which upon load is fixedup to $B6.
+But note the comment from "Apple Assembly Line" above indicating
+this version was actually officially released in Aug. 1983.
+
+Here is the relevant section of code:
+
+CLRAPFLG   LDA #0
+           STA APPNDFLG
+           .IF VERSION = 330
+               JMP BK2APND
+           .ELSEIF VERSION = 331
+               JMP CMPATCH
+           .ELSEIF VERSION = 332
+               JMP RSETPTRS
+           .ENDIF

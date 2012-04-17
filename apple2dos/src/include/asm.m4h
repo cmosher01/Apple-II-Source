@@ -1,0 +1,43 @@
+define(`ASM_DATA',`.BYT $*')
+define(`ASM_DATA_W',`.WORD $*')
+define(`ASM_ADDR',`.WORD $*')
+define(`ASM_RES',`.DSB $1,ifelse(`$2',`',0,$2)')
+
+
+
+define(`NL',`
+')
+
+changecom(`;',NL())
+
+dnl assumes no single-letter macros
+define(`SAFESUB',
+	`ifelse(
+		$#,0,``$0'',
+		$#,2,`$0($@,eval(len(`$1')-($2)))',
+		eval(`$3-0'),0,`',
+		`substr(`$1',eval($2),1)`'$0(`$1',eval(($2)+1),eval(($3)-1))')')
+
+define(`STR_REVERSE',
+	`ifelse(
+		len(`$1'),0,`',
+		`$0(SAFESUB(`$1',1))`'SAFESUB(`$1',0,1)')')
+
+define(`STR_FORCHAR',
+	`ifelse(
+		`$2',`',`',
+		`pushdef(`$1',SAFESUB(`$2',0,1))$3`'popdef(`$1')`'$0($1,SAFESUB(`$2',1),`$3')')')
+
+define(`STR_FORCHAR_LAST',
+	`ifelse(
+		len(`$2'),1,`pushdef(`$1',`$2')$4`'popdef(`$1')',
+		`pushdef(`$1',SAFESUB(`$2',0,1))$3`'popdef(`$1')`'$0($1,SAFESUB(`$2',1),`$3',`$4')')')
+
+define(`HICHAR',`("`$1'"|%10000000)')
+define(`LOCHAR',`("`$1'"&%01111111)')
+
+define(`HIASCII',`STR_FORCHAR(__,`$1',`ASM_DATA(HICHAR(__)) NL()')')
+define(`LOASCII',`STR_FORCHAR(__,`$1',`ASM_DATA(LOCHAR(__)) NL()')')
+
+define(`HLASCII',`STR_FORCHAR_LAST(__,`$1',`ASM_DATA(HICHAR(__)) NL()',`ASM_DATA(LOCHAR(__)) NL()')')
+define(`LHASCII',`STR_FORCHAR_LAST(__,`$1',`ASM_DATA(LOCHAR(__)) NL()',`ASM_DATA(HICHAR(__)) NL()')')
