@@ -1,6 +1,8 @@
 Apple ][ Source
 ===============
 Christopher A. Mosher <chris@mosher.mine.nu>
+:icons:
+:iconsdir: .
 
 == Introduction
 
