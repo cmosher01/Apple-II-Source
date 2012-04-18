@@ -37,26 +37,6 @@ violation of copyright law.
 By clicking any of the links in the following list, you are effectively placing an order
 to reproduce that work, and agree to the restrictions outlined above.
 
-==== Redhat (RPM) image:redhat.png[Redhat RPM]
-
-Apple ][ System: http://mosher.mine.nu/apple2/download/apple2sys.noarch.rpm[apple2sys.noarch.rpm]
-
-Apple ][ Disk Operating System: http://mosher.mine.nu/apple2/download/apple2dos.noarch.rpm[apple2dos.noarch.rpm]
-
-==== Debian (DEB) image:debian.png[Debian DEB]
-
-Apple ][ System: http://mosher.mine.nu/apple2/download/apple2sys_all.deb[apple2sys_all.deb]
-
-Apple ][ Disk Operating System: http://mosher.mine.nu/apple2/download/apple2dos_all.deb[apple2dos_all.deb]
-
-==== Windows (MSI) image:windows.gif[Windows MSI]
-
-Apple ][ System: http://mosher.mine.nu/apple2/download/apple2sys.msi[apple2sys.msi]
-
-Apple ][ Disk Operating System: http://mosher.mine.nu/apple2/download/apple2dos.msi[apple2dos.msi]
-
-==== Source (make) image:make.png[Source make]
-
 Apple ][ System: http://mosher.mine.nu/apple2/download/apple2sys.tar.gz[apple2sys.tar.gz]
 
 Apple ][ Disk Operating System: http://mosher.mine.nu/apple2/download/apple2dos.tar.gz[apple2dos.tar.gz]
@@ -119,5 +99,4 @@ More details on specific versions are available
 in source code comments, and in various README files that also come with
 the source distributions. As stated above, these works are provided for
 private study, scholarship, or research only, and are (or may be) copyright
-by Apple, Inc., or others. For convenience, these works are also provided in
-binary form.
+by Apple, Inc., or others.
