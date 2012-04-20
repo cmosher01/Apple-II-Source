@@ -40,7 +40,9 @@ to reproduce that work, and agree to the restrictions outlined above.
 Apple ][ System: http://mosher.mine.nu/apple2/download/apple2system-latest.tar.gz[apple2system.tar.gz]
 
 Apple ][ Disk Operating System: http://mosher.mine.nu/apple2/download/apple2dos-latest.tar.gz[apple2dos.tar.gz]
+(prerequisite: http://mosher.mine.nu/apple2/download/a2catalog-latest.tar.gz[a2catalog.tar.gz])
 
+(prerequisite for either: http://www.floodgap.com/retrotech/xa/[xa])
 
 
 === Apple ][ System Software
@@ -105,4 +107,6 @@ by Apple, Inc., or others.
 
 === Source Code Repository
 
-The source is hosted on github: https://github.com/cmosher01/Apple-II-Source[Apple-II-Source].
+The source is hosted on github:
+https://github.com/cmosher01/Apple-II-Source[Apple-II-Source]
+https://github.com/cmosher01/Apple-II-Disk-Tools[Apple-II-Disk-Tools]
