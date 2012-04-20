@@ -37,9 +37,9 @@ violation of copyright law.
 By clicking any of the links in the following list, you are effectively placing an order
 to reproduce that work, and agree to the restrictions outlined above.
 
-Apple ][ System: http://mosher.mine.nu/apple2/download/apple2sys.tar.gz[apple2sys.tar.gz]
+Apple ][ System: http://mosher.mine.nu/apple2/download/apple2system-latest.tar.gz[apple2system.tar.gz]
 
-Apple ][ Disk Operating System: http://mosher.mine.nu/apple2/download/apple2dos.tar.gz[apple2dos.tar.gz]
+Apple ][ Disk Operating System: http://mosher.mine.nu/apple2/download/apple2dos-latest.tar.gz[apple2dos.tar.gz]
 
 
 
