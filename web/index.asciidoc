@@ -4,6 +4,8 @@ Christopher A. Mosher <chris@mosher.mine.nu>
 :icons:
 :iconsdir: .
 
+
+
 == Introduction
 
 This package contains reverse-engineered source code for
@@ -13,9 +15,13 @@ of the Apple ][ series computers from Apple, Inc.
 The source code is intended to be processed by +m4+ and
 assembled by http://www.floodgap.com/retrotech/xa/[+xa65+ Assembler].
 
+
+
 == Apple ][ Library
 
 (A private archives not affiliated with Apple, Inc.)
+
+
 
 === NOTICE: Warning Concerning Copyright Restrictions
 
@@ -38,11 +44,16 @@ By clicking any of the links in the following list, you are effectively placing 
 to reproduce that work, and agree to the restrictions outlined above.
 
 Apple ][ System: http://mosher.mine.nu/apple2/download/apple2system-latest.tar.gz[apple2system.tar.gz]
+(prerequisite:
+ http://www.floodgap.com/retrotech/xa/[xa])
 
 Apple ][ Disk Operating System: http://mosher.mine.nu/apple2/download/apple2dos-latest.tar.gz[apple2dos.tar.gz]
-(prerequisite: http://mosher.mine.nu/apple2/download/a2catalog-latest.tar.gz[a2catalog.tar.gz])
+(prerequisites:
+ http://mosher.mine.nu/apple2/download/a2catalog-latest.tar.gz[a2catalog.tar.gz]
+ http://www.floodgap.com/retrotech/xa/[xa])
 
-(prerequisite for either: http://www.floodgap.com/retrotech/xa/[xa])
+Apple ][ DOS Master Disks: http://mosher.mine.nu/apple2/download/apple2sysmas-latest.tar.gz[apple2sysmas.tar.gz]
+
 
 
 === Apple ][ System Software
@@ -110,3 +121,4 @@ by Apple, Inc., or others.
 The source is hosted on github:
 https://github.com/cmosher01/Apple-II-Source[Apple-II-Source]
 https://github.com/cmosher01/Apple-II-Disk-Tools[Apple-II-Disk-Tools]
+https://github.com/cmosher01/Apple-II-System-Masters[Apple-II-System-Masters]
