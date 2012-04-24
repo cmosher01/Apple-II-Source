@@ -3,17 +3,20 @@
 .asciidoc.html :
 	asciidoc -b html5 $<
 
+HTMLS=index.html breakout.html
+IMGS=warning.png
+
 all : doc
 
-doc : index.html
+doc : $(HTMLS) $(IMGS)
 
 clean :
-	rm -f index.html
+	rm -f $(HTMLS)
 
 install :
 	mkdir -p apple2
-	cp index.html apple2
-	cp warning.png apple2
+	cp $(HTMLS) apple2
+	cp $(IMGS) apple2
 
 uninstall :
 	rm -Rf apple2

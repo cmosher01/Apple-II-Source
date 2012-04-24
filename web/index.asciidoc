@@ -83,6 +83,15 @@ and the later, most common, format, with 16 sectors per track.
 
 
 
+=== Breakout
+
+Breakout is the game that started it all. A version of
+http://mosher.mine.nu/apple2/breakout.html[Breakout],
+in Integer BASIC, from the earliest Apple ][ reference
+manual, with line-by-line annotations, is available.
+
+
+
 === Recovery Effort
 
 These pieces of software are not easily available today, in source or
