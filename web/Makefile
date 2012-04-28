@@ -4,7 +4,7 @@
 	asciidoc -b html5 $<
 
 HTMLS=index.html breakout.html
-IMGS=warning.png
+IMGS=warning.png breakout.png
 
 all : doc
 

@@ -28,6 +28,7 @@ to find so far. This one is from an original
 version of the Apple ][ Reference Manual, entitled
 "APPLE II MINI MANUAL" from some time in 1977.
 
+image::breakout.png[Breakout]
 
 
 
