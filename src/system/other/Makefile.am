@@ -3,7 +3,7 @@ mypkgdir=$(prefix)/lib/apple2/system/a2
 
 AUTOMAKE_OPTIONS=-Wno-override
 
-INCDIR=$(srcdir)/../include
+INCDIR=$(srcdir)/../../include
 
 ZEROSEGS=-bd 0 -bb 0 -bz 0
 

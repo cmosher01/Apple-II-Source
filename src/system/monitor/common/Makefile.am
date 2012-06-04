@@ -1,6 +1,6 @@
 AUTOMAKE_OPTIONS=-Wno-override
 
-INCDIR=$(srcdir)/../../include
+INCDIR=$(srcdir)/../../../include
 COMDIR=$(srcdir)/../common
 
 ZEROSEGS=-bd 0 -bb 0 -bz 0
