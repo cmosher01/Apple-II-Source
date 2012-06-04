@@ -6,17 +6,17 @@
 HTMLS=index.html breakout.html
 IMGS=warning.png breakout.png
 
+.PHONY: all doc clean site
+
 all : doc
 
 doc : $(HTMLS) $(IMGS)
 
 clean :
 	rm -f $(HTMLS)
+	rm -Rf site
 
-install :
-	mkdir -p apple2
-	cp $(HTMLS) apple2
-	cp $(IMGS) apple2
-
-uninstall :
-	rm -Rf apple2
+site :
+	mkdir -p site
+	cp $(HTMLS) site
+	cp $(IMGS) site
