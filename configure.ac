@@ -2,9 +2,9 @@
 # Process this file with autoconf to produce a configure script.
 
 AC_PREREQ([2.61])
-AC_INIT([apple2dos],[0.1])
+AC_INIT([apple2sys],[1.0-SNAPSHOT])
 AC_CONFIG_AUX_DIR([build-aux])
-AC_CONFIG_SRCDIR([src/system/common/rwts.m4])
+AC_CONFIG_SRCDIR([src/dos/system/common/rwts.m4])
 AM_INIT_AUTOMAKE([-Wall -Werror])
 
 
@@ -45,16 +45,24 @@ AC_CONFIG_FILES([
 
 Makefile
 src/Makefile
+src/dos/Makefile
+src/dos/system/Makefile
+src/dos/system/dos310/Makefile
+src/dos/system/dos320/Makefile
+src/dos/system/dos321/Makefile
+src/dos/system/dos330/Makefile
+src/dos/system/dos331/Makefile
+src/dos/system/dos332/Makefile
+src/dos/controller/Makefile
+src/dos/controller/13sector/Makefile
+src/dos/controller/16sector/Makefile
 src/system/Makefile
-src/system/dos310/Makefile
-src/system/dos320/Makefile
-src/system/dos321/Makefile
-src/system/dos330/Makefile
-src/system/dos331/Makefile
-src/system/dos332/Makefile
-src/controller/Makefile
-src/controller/13sector/Makefile
-src/controller/16sector/Makefile
+src/system/monitor/Makefile
+src/system/monitor/apple2/Makefile
+src/system/monitor/apple2plus/Makefile
+src/system/other/Makefile
+src/system/intbasic/Makefile
+src/system/applesoft/Makefile
 
 ])
 
