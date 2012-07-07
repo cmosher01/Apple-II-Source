@@ -43,12 +43,12 @@ violation of copyright law.
 By clicking any of the links in the following list, you are effectively placing an order
 to reproduce that work, and agree to the restrictions outlined above.
 
-Apple ][ System and DOS: http://mosher.mine.nu/apple2/download/apple2sys-latest.tar.gz[apple2sys.tar.gz]
+Apple ][ System and DOS: ../download/apple2sys-latest.tar.gz[apple2sys.tar.gz]
 (prerequisites:
- http://mosher.mine.nu/apple2/download/a2catalog-latest.tar.gz[a2catalog.tar.gz]
+ ../download/a2catalog-latest.tar.gz[a2catalog.tar.gz]
  http://www.floodgap.com/retrotech/xa/[xa])
 
-Apple ][ DOS Master Disks: http://mosher.mine.nu/apple2/download/apple2sysmas-latest.tar.gz[apple2sysmas.tar.gz]
+Apple ][ DOS Master Disks: ../download/apple2sysmas-latest.tar.gz[apple2sysmas.tar.gz]
 
 
 
@@ -82,7 +82,7 @@ and the later, most common, format, with 16 sectors per track.
 === Breakout
 
 Breakout is the game that started it all. A version of
-http://mosher.mine.nu/apple2/breakout.html[Breakout],
+breakout.html[Breakout],
 in Integer BASIC, from the earliest Apple ][ reference
 manual, with line-by-line annotations, is available.
 
