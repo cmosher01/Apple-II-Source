@@ -24,21 +24,21 @@ ZERO_SEGS=-bd 0 -bb 0 -bz 0
 	dd bs=256 skip=27 <$< >$@
 	dd bs=256 count=27 <$< >>$@
 	dd bs=256 count=184 </dev/zero >>$@
-	a2catalog --dos=$(DOS_VERS) >>$@
+	$(A2CATALOG) --dos=$(DOS_VERS) >>$@
 	dd bs=256 count=221 </dev/zero >>$@
 
 .d13.nib13:
-	a2nibblize <$< >$@
+	$(A2NIBBLIZE) <$< >$@
 
 .a65.d16:
 	dd bs=256 skip=27 <$< >$@
 	dd bs=256 count=27 <$< >>$@
 	dd bs=256 count=235 </dev/zero >>$@
-	a2catalog --dos=$(DOS_VERS) >>$@
+	$(A2CATALOG) --dos=$(DOS_VERS) >>$@
 	dd bs=256 count=272 </dev/zero >>$@
 
 .d16.nib16:
-	a2nibblize <$< >$@
+	$(A2NIBBLIZE) <$< >$@
 
 
 
