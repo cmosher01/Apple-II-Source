@@ -78,7 +78,7 @@ image::breakout.png[Breakout]
    as even and odd bricks the same color, or the paddle the
    same color as the ball.
 
-.  The program will crash with an error message of ""
+.  The program will crash with an error message of "\*** >32767 ERR"
    if the user enters a number between -32753 and -32767, inclusive,
    when entering a value for a custom color number. This is
    due to the IF statement on line 100.
@@ -87,7 +87,7 @@ image::breakout.png[Breakout]
 
 .  Entering more than 20 characters as a response to any question
    causes the program to abort with the error message
-   "*** STR OVFL ERR" (string overflow).
+   "\*** STR OVFL ERR" (string overflow).
 
 
 
