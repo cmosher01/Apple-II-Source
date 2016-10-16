@@ -682,7 +682,7 @@ if we went off the left edge, the user missed the ball, so go to <<line400,line 
 IF I < 0 THEN 400 :
 ----
 
-else, the ball still in play somewhere
+else, the ball is still in play somewhere
 
 move the displayed paddle based on user control
 via soubroutine at <<line200,line 200>>
