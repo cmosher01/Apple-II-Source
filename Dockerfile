@@ -13,7 +13,7 @@ RUN \
 RUN \
     apt-get update && \
     DEBIAN_FRONTEND=noninteractive apt-get install -y -o Dpkg::Options::="--force-confold" -o Dpkg::Options::="--force-confdef" --no-install-recommends \
-        automake autoconf autopoint xa65 \
+        automake autoconf autopoint xa65 asciidoc \
     && \
     apt-get autoremove -y && \
     apt-get clean
@@ -21,6 +21,8 @@ RUN \
 
 
 RUN chmod -R a+rwX /usr/local
+RUN rm -Rf /var/www/html && ln -s /home/app /var/www/html
+RUN rm -f /etc/service/nginx/down
 
 
 
@@ -68,3 +70,5 @@ RUN ./bld.sh make dist
 RUN ./bld.sh make distcheck
 RUN ./bld.sh make install
 RUN ./bld.sh make installcheck
+
+USER root
