@@ -71,4 +71,6 @@ RUN ./bld.sh make distcheck
 RUN ./bld.sh make install
 RUN ./bld.sh make installcheck
 
+RUN cd doc && ln -s ../apple2sys-*.tar.gz apple2sys.tar.gz && cd -
+
 USER root

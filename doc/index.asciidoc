@@ -1,6 +1,6 @@
 Apple ][ Source
 ===============
-Christopher A. Mosher <chris@mosher.mine.nu>
+Christopher A. Mosher <cmosher01@gmail.com>
 :icons:
 :iconsdir: .
 
@@ -12,8 +12,8 @@ This package contains reverse-engineered source code for
 the System Software and Disk Operating System Software
 of the Apple ][ series computers from Apple, Inc.
 
-The source code is intended to be processed by +m4+ and
-assembled by http://www.floodgap.com/retrotech/xa/[+xa65+ Assembler].
+The source code is intended to be processed by https://en.wikipedia.org/wiki/M4_(computer_language)[+m4+]
+and assembled by http://www.floodgap.com/retrotech/xa/[+xa65+ Assembler].
 
 
 
@@ -43,12 +43,12 @@ violation of copyright law.
 By clicking any of the links in the following list, you are effectively placing an order
 to reproduce that work, and agree to the restrictions outlined above.
 
-Apple ][ System and DOS: http://mosher.mine.nu/apple2/download/apple2sys-latest.tar.gz[apple2sys.tar.gz]
+Apple ][ System and DOS: http://mosher.mine.nu/apple2/apple2sys.tar.gz[apple2sys.tar.gz]
 (prerequisites:
- http://mosher.mine.nu/apple2/download/a2catalog-latest.tar.gz[a2catalog.tar.gz]
+ http://mosher.mine.nu/a2catalog/a2catalog-1.2-SNAPSHOT.tar.gz[a2catalog.tar.gz]
  http://www.floodgap.com/retrotech/xa/[xa])
 
-Apple ][ DOS Master Disks: http://mosher.mine.nu/apple2/download/apple2sysmas-latest.tar.gz[apple2sysmas.tar.gz]
+Apple ][ DOS Master Disks: [coming soon]
 
 
 
@@ -82,7 +82,7 @@ and the later, most common, format, with 16 sectors per track.
 === Breakout
 
 Breakout is the game that started it all. A version of
-http://mosher.mine.nu/apple2/site/breakout.html[Breakout],
+breakout.html[Breakout],
 in Integer BASIC, from the earliest Apple ][ reference
 manual, with line-by-line annotations, is available.
 
