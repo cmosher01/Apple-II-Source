@@ -13,7 +13,7 @@ RUN \
 RUN \
     apt-get update && \
     DEBIAN_FRONTEND=noninteractive apt-get install -y -o Dpkg::Options::="--force-confold" -o Dpkg::Options::="--force-confdef" --no-install-recommends \
-        automake autoconf autopoint xa65 asciidoc \
+        automake autoconf autopoint xa65 asciidoc source-highlight \
     && \
     apt-get autoremove -y && \
     apt-get clean
@@ -21,7 +21,7 @@ RUN \
 
 
 RUN chmod -R a+rwX /usr/local
-RUN rm -Rf /var/www/html && ln -s /home/app /var/www/html
+RUN ln -s /home/app/apple2/doc /var/www/html/apple2
 RUN rm -f /etc/service/nginx/down
 
 
