@@ -22,6 +22,7 @@ RUN \
 
 RUN chmod -R a+rwX /usr/local
 RUN ln -s /home/app/apple2/doc /var/www/html/apple2
+RUN sed -i "s/worker_processes.*/worker_processes 1;/" /etc/nginx/nginx.conf
 RUN rm -f /etc/service/nginx/down
 
 
