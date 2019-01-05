@@ -34,11 +34,6 @@ WORKDIR $HOME
 
 
 USER root
-ADD http://mosher.mine.nu/a2catalog/a2catalog-1.2-SNAPSHOT.tar.gz ./
-RUN chmod a+r a2catalog-1.2-SNAPSHOT.tar.gz
-USER app
-RUN tar xzf a2catalog-1.2-SNAPSHOT.tar.gz
-RUN cd a2catalog-1.2-SNAPSHOT && ./configure && make && make install && cd -
 
 
 
@@ -53,15 +48,13 @@ COPY bootstrap configure.ac Makefile.am ./
 
 COPY NEWS README* AUTHORS ChangeLog COPYING* ./
 
+COPY bld.sh ./
+
 COPY src/ ./src/
 COPY doc/ ./doc/
-RUN chown -R app: *
+RUN chown -R app: .
 
 USER app
-
-
-
-COPY bld.sh ./
 
 RUN ./bld.sh ./bootstrap
 RUN ./bld.sh ./configure
