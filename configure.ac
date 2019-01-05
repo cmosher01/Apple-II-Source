@@ -8,20 +8,6 @@ AC_CONFIG_SRCDIR([src/dos/system/common/rwts.m4])
 AM_INIT_AUTOMAKE([-Wall -Werror])
 
 
-AC_PATH_PROGS([A2NIBBLIZE],[a2nibblize])
-if test "X$ac_cv_path_A2NIBBLIZE" == X
-then
-	AC_MSG_ERROR([Cannot find a2nibblize, from Apple-II-Disk-Tools])
-fi
-AC_ARG_VAR([A2NIBBLIZE],[path to a2nibblize, from Apple-II-Disk-Tools])
-
-AC_PATH_PROGS([A2CATALOG],[a2catalog])
-if test "X$ac_cv_path_A2CATALOG" == X
-then
-	AC_MSG_ERROR([Cannot find a2catalog, from Apple-II-Disk-Tools])
-fi
-AC_ARG_VAR([A2CATALOG],[path to a2catalog, from Apple-II-Disk-Tools])
-
 AC_PATH_PROGS([XA65],[xa65 xa])
 if test "X$ac_cv_path_XA65" == X
 then

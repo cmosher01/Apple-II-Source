@@ -5,12 +5,13 @@ COMDIR=$(srcdir)/../common
 
 
 
+SUFFIXES=.d16 .d13 .a65 .r65 .o65 .s65 .m4
+
 ZERO_SEGS=-bd 0 -bb 0 -bz 0
 
 .m4.s65:
 	$(M4) -E -I $(INCDIR) -I $(COMDIR) $(M4FLAGS_LOCAL) $(M4FLAGS) $< >$@
 
-#arbitrary code seg start (-bt 2048) because -bt 0 tends to cause strange errors
 .s65.o65:
 	$(XA65) -C -M -R -c -bt 2048 $(ZERO_SEGS) -o $@ $(XA65FLAGS) $<
 
@@ -24,34 +25,38 @@ ZERO_SEGS=-bd 0 -bb 0 -bz 0
 	dd bs=256 skip=27 <$< >$@
 	dd bs=256 count=27 <$< >>$@
 	dd bs=256 count=184 </dev/zero >>$@
-	$(A2CATALOG) --dos=$(DOS_VERS) >>$@
-	dd bs=256 count=221 </dev/zero >>$@
-
-.d13.nib13:
-	$(A2NIBBLIZE) <$< >$@
+	echo -n -e \\x00\\x11\\x0C\\x02 >>$@
+	dd bs=1 count=35 </dev/zero >>$@
+	echo -n -e \\x7A >>$@
+	dd bs=1 count=12 </dev/zero >>$@
+	echo -n -e \\x23\\x10\\x00\\x01 >>$@
+	dd bs=1 count=200 </dev/zero >>$@
+	dd bs=256 count=233 </dev/zero >>$@
 
 .a65.d16:
 	dd bs=256 skip=27 <$< >$@
 	dd bs=256 count=27 <$< >>$@
 	dd bs=256 count=235 </dev/zero >>$@
-	$(A2CATALOG) --dos=$(DOS_VERS) >>$@
-	dd bs=256 count=272 </dev/zero >>$@
+	echo -n -e \\x00\\x11\\x0F\\x03 >>$@
+	dd bs=1 count=35 </dev/zero >>$@
+	echo -n -e \\x7A >>$@
+	dd bs=1 count=12 </dev/zero >>$@
+	echo -n -e \\x23\\x0D\\x00\\x01 >>$@
+	dd bs=1 count=200 </dev/zero >>$@
+	dd bs=256 count=287 </dev/zero >>$@
 
-.d16.nib16:
-	$(A2NIBBLIZE) <$< >$@
 
 
-
-OBJS = reloc.o65 main.o65 filemgr.o65 boot1.o65 boot2.o65 rwts.o65 rwtsapi.o65
-M4S = $(COMDIR)/reloc.m4 $(COMDIR)/main.m4 $(COMDIR)/filemgr.m4 $(COMDIR)/boot1.m4 $(COMDIR)/boot2.m4 $(COMDIR)/rwts.m4 $(COMDIR)/rwtsapi.m4
+OBJS=reloc.o65 main.o65 filemgr.o65 boot1.o65 boot2.o65 rwts.o65 rwtsapi.o65
+M4S=$(COMDIR)/reloc.m4 $(COMDIR)/main.m4 $(COMDIR)/filemgr.m4 $(COMDIR)/boot1.m4 $(COMDIR)/boot2.m4 $(COMDIR)/rwts.m4 $(COMDIR)/rwtsapi.m4
 
 
 
 mypkgdir=$(prefix)/lib/apple2/dos/$(DOS_SECTORS)sector/dos$(DOS_VERS)
 
-mypkg_DATA=dos.nib$(DOS_SECTORS)
+mypkg_DATA=dos.d$(DOS_SECTORS)
 noinst_DATA=dos.md5
-EXTRA_DIST=$(M4S) $(COMDIR)/symbols.m4h $(COMDIR)/zpabs.m4h $(srcdir)/dos.s65 $(srcdir)/dos.md5 $(INCDIR)/asm.m4h
+EXTRA_DIST=$(M4S) $(COMDIR)/symbols.m4h $(COMDIR)/zpabs.m4h $(srcdir)/dos.m4 $(srcdir)/dos.md5 $(INCDIR)/asm.m4h
 
 dos.r65: dos.o65 $(OBJS)
 dos.r65: M4FLAGS_LOCAL=-DVERSION=$(DOS_VERS)
@@ -71,7 +76,7 @@ rwtsapi.s65: rwtsapi.m4 symbols.m4h asm.m4h
 check_SCRIPTS=unit_test.sh
 TESTS=$(check_SCRIPTS)
 
-.PRECIOUS: dos.a65
+.SECONDARY:
 
 unit_test.sh:
 	touch $@
@@ -86,4 +91,4 @@ unit_test.sh:
 
 
 
-CLEANFILES=unit_test.sh *.nib16 *.nib13 *.d16 *.d13 *.a65 *.r65 *.s65 *.o65
+CLEANFILES=unit_test.sh *.d16 *.d13 *.a65 *.r65 *.o65 *.s65
