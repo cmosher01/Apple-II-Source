@@ -1,7 +1,7 @@
 #!/bin/sh
-mkfifo bld
-tee -a build.log <bld &
-$@ >bld 2>&1
+mkfifo /tmp/bld
+tee -a build.log </tmp/bld &
+$@ >/tmp/bld 2>&1
 status=$?
-rm bld
+rm /tmp/bld
 exit $status
