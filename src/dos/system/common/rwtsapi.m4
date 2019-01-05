@@ -658,8 +658,9 @@ RTNSETRK        RTS
 
 FORMAT
                 ifelse(eval(VERSION < 330),1,`
-
-
+; ---------------------------------------------
+; This is the 13-sector FORMAT TRACK subroutine
+; ---------------------------------------------
                 LDA   #$80      ; PRETEND WERE ON TRACK 128
                 STA   PRESTRK
                 LDA   #$00
@@ -802,9 +803,9 @@ L3F6C           STA   FRMTSEC
 L3F73           PHA
                 PLA
                 LDY   MTRTIME+1
-                LDA   Q6H,X
+                LDA   Q6H,X ; check if disk is write-protected
                 LDA   Q7L,X
-                BMI   L3FB3
+                BMI   L3FB3 ; branch if it is
                 DEY
 L3F80           PHA
                 PLA
@@ -820,16 +821,17 @@ L3F80           PHA
                 PLA
                 DEY
                 BNE   L3F80
-
+; we finished writing the 13 sectors of the track, so we should be circling around
+; back to the beginning again, where sector zero will be, so try to read sector zero now:
                 JSR   RDADDR
-                BCS   L3F94
+                BCS   L3F94 ; branch if error
                 LDA   SECDSK
                 BEQ   L3F9E
 L3F94           LDY   MTRTIME+1
                 DEY
                 CPY   #$10
-                BCC   L3FB3
-                JMP   L3EAE
+                BCC   L3FB3 ; branch to error if tried too many times to write a good track
+                JMP   L3EAE ; go try again
 
 L3F9E           INC   FRMTKCTR
                 LDA   FRMTKCTR
