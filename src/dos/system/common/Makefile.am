@@ -25,11 +25,11 @@ ZERO_SEGS=-bd 0 -bb 0 -bz 0
 	dd bs=256 skip=27 <$< >$@
 	dd bs=256 count=27 <$< >>$@
 	dd bs=256 count=184 </dev/zero >>$@
-	echo -n -e \\x00\\x11\\x0C\\x02 >>$@
+	printf "\x00\x11\x0C\x02" >>$@
 	dd bs=1 count=35 </dev/zero >>$@
-	echo -n -e \\x7A >>$@
+	printf "\x7A" >>$@
 	dd bs=1 count=12 </dev/zero >>$@
-	echo -n -e \\x23\\x10\\x00\\x01 >>$@
+	printf "\x23\x10\x00\x01" >>$@
 	dd bs=1 count=200 </dev/zero >>$@
 	dd bs=256 count=233 </dev/zero >>$@
 
@@ -37,11 +37,11 @@ ZERO_SEGS=-bd 0 -bb 0 -bz 0
 	dd bs=256 skip=27 <$< >$@
 	dd bs=256 count=27 <$< >>$@
 	dd bs=256 count=235 </dev/zero >>$@
-	echo -n -e \\x00\\x11\\x0F\\x03 >>$@
+	printf "\x00\x11\x0F\x03" >>$@
 	dd bs=1 count=35 </dev/zero >>$@
-	echo -n -e \\x7A >>$@
+	printf "\x7A" >>$@
 	dd bs=1 count=12 </dev/zero >>$@
-	echo -n -e \\x23\\x0D\\x00\\x01 >>$@
+	printf "\x23\x0D\x00\x01" >>$@
 	dd bs=1 count=200 </dev/zero >>$@
 	dd bs=256 count=287 </dev/zero >>$@
 
@@ -85,7 +85,7 @@ unit_test.sh:
 		echo "echo \"md5sum program not found, so cannot run this test\" >&2" >>$@ ; \
 		echo "exit 1" >>$@ ; \
 	else \
-		echo "$(MD5SUM) --check --status --warn $(srcdir)/dos.md5" >>$@ ; \
+		echo "$(MD5SUM) --status --check $(srcdir)/dos.md5" >>$@ ; \
 	fi
 	chmod +x $@
 

@@ -54,7 +54,7 @@ unit_test.sh:
 		echo "echo \"md5sum program not found, so cannot run this test\" >&2" >>$@ ; \
 		echo "exit 1" >>$@ ; \
 	else \
-		echo "$(MD5SUM) --check --status --warn $(srcdir)/other.md5" >>$@ ; \
+		echo "$(MD5SUM) --status --check $(srcdir)/other.md5" >>$@ ; \
 	fi
 	chmod +x $@
 
