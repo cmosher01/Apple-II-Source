@@ -1,9 +1,0 @@
-Apple ][ Source
-===============
-Christopher A. Mosher <chris@mosher.mine.nu>
-
-This package contains reverse-engineered source code for
-the System Software and Disk Operating System Software
-of the Apple ][ series computers from Apple, Inc.
-
-Home page: http://mosher.mine.nu/apple2/[Apple II Library]
