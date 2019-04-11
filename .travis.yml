@@ -10,7 +10,7 @@ before_script:
   - ./bootstrap
 script:
   - ./configure && make
-  - zip -j $NAME-$TRAVIS_OS_NAME src/$NAME
+  - find . -name \*.a65 | xargs zip apple2sys
 
 deploy:
   provider: releases
