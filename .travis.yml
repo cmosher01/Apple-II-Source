@@ -1,0 +1,23 @@
+language: minimal
+os: linux
+dist: xenial
+sudo: required
+before_install:
+  - sudo apt-get -qq update
+install:
+  - sudo apt-get install -y xa65
+before_script:
+  - ./bootstrap
+script:
+  - ./configure && make
+  - zip -j $NAME-$TRAVIS_OS_NAME src/$NAME
+
+deploy:
+  provider: releases
+  api_key:
+    secure: 9hyBnjBRgtWc3WnviAuvWpRfmCvOh0UTOD9N98cR+/cF5rJ6K927o/8juI+GkQunGNRLAcnduRb43yDqcvAtumBYiDN68y/vk5oh50x3uaeTvoOlaFAmThN9pmwfXnGOb+QXZg3UA8X2LsAN7A7ryHa9vkO0s+J17J9ZrW1TRSom7i26Oexn6CURwHEx1YidISVLDxt/VK+SdfYRvSPeZWvrKKaYEJcnl2+xL4DXqIGw1p2aUPQ0HB3nbBMX6GzJLp0OB8hBgoH7P4myOCek/OKt9hUV5VMrFx2Oig+h+j+Y69vRAPbekwNIHxjgTYbR1jN6ok7RwZjLH6a0irdMNElpGDuLN+wKVgoWDIUhhn1JPl122m0Qsc/V0kN2pAdtcGV2ABenhHk4Cs/nD2lpCVnOybum9q1HoDTLrj5OIwstKtMN87ZLaAHhNeOKBUGWRaZoiE/OfNel92qkywuIAlXK/cavqQ7+RNe9pd2ZnHeLqJf9gAQa2+m1CQp+AqaWoEsmWhU6MMpn4F9w/877J7u5M2KuJv2adcBZOjZItbG6qDn6rAE3igNmvYfI4MweR6Md7oXVicrN7LUk6uuERwqWHVe2+v7Uk4IGEJpk4+ujhWd/+JueboX1afBUgQ8hfowyaE90m+yPxoBHicOYZ6iSCXGpBBh62Z3AGFyO9/4=
+  file_glob: true
+  file: "*.zip"
+  skip_cleanup: true
+  on:
+    tags: true
