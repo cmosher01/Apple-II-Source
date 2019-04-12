@@ -10,7 +10,12 @@ before_script:
   - ./bootstrap
 script:
   - ./configure && make
-  - find . -name \*.a65 | xargs zip apple2sys
+  - mkdir apple2
+  - cd src
+  - find . -name \*.a65 | xargs cp -v --parents -t ../apple2/
+  - cd ..
+  - zip -r apple2sys apple2
+  - unzip -l apple2sys
 
 deploy:
   provider: releases
