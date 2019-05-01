@@ -1,7 +1,0 @@
----
-version: '2'
-services:
-  apple2:
-    build: .
-    ports:
-      - "8080:80"
