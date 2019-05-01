@@ -62,7 +62,6 @@ src/system/monitor/apple2plus/Makefile
 src/system/other/Makefile
 src/system/intbasic/Makefile
 src/system/applesoft/Makefile
-doc/Makefile
 
 ])
 

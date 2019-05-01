@@ -170,28 +170,27 @@ A version with fixes for bugs 1-6 described above.
 
 ### Variables
 
-[horizontal]
-`A$`:: name of user
-`B$`:: temporary user input value
-`A`::  color of background
-`B`::  color of even bricks
-`C`::  color of odd bricks
-`D`::  color of paddle
-`E`::  color of ball
-`I`::  X coord of next ball pos
-`J`::  Y coord of next ball pos * 3
-`K`::  Y coord of next ball pos (`J/3`, plottable Y coord)
-`L`::  current ball number (1-5)
-`M`::  indicates if we have not just hit the back wall (is usually 1, but is 0 when coming off the back wall until next hit)
-`N`::  count of paddle hits for the current ball
-`P`::  paddle position (Y coord of top pixel of paddle)
-`Q`::  temporary value
-`S`::  score
-`SW`:: are we in demo. mode? (1 = yes, auto paddle movement; 0 = no, user moves paddle)
-`V`::  ball X movement (`V<0` means left, `V>0` means right, `ABS(V)` is speed)
-`W`::  ball Y movement (`W<0` means up,   `W>0` means down,  `ABS(W)` is speed/angle)
-`X`::  ball X position (0-39) (0 is at paddle, 39 is at back wall)
-`Y`::  ball Y position * 3 (0-119) (0 is top of screen, 119 is bottom of screen)
+* `A$`:: name of user
+* `B$`:: temporary user input value
+* `A`::  color of background
+* `B`::  color of even bricks
+* `C`::  color of odd bricks
+* `D`::  color of paddle
+* `E`::  color of ball
+* `I`::  X coord of next ball pos
+* `J`::  Y coord of next ball pos * 3
+* `K`::  Y coord of next ball pos (`J/3`, plottable Y coord)
+* `L`::  current ball number (1-5)
+* `M`::  indicates if we have not just hit the back wall (is usually 1, but is 0 when coming off the back wall until next hit)
+* `N`::  count of paddle hits for the current ball
+* `P`::  paddle position (Y coord of top pixel of paddle)
+* `Q`::  temporary value
+* `S`::  score
+* `SW`:: are we in demo. mode? (1 = yes, auto paddle movement; 0 = no, user moves paddle)
+* `V`::  ball X movement (`V<0` means left, `V>0` means right, `ABS(V)` is speed)
+* `W`::  ball Y movement (`W<0` means up,   `W>0` means down,  `ABS(W)` is speed/angle)
+* `X`::  ball X position (0-39) (0 is at paddle, 39 is at back wall)
+* `Y`::  ball Y position * 3 (0-119) (0 is top of screen, 119 is bottom of screen)
 
 ### Implementation Notes
 
@@ -227,7 +226,6 @@ the program automatically moves the paddle on the screen to hit the ball.
 
 
 
-[[line5]]
 #### line 5
 
 set "text" mode (turn off any graphics display)
@@ -247,7 +245,6 @@ VTAB 4 : TAB 10 : PRINT "*** BREAKOUT GAME ***" : PRINT
 
 
 
-[[line7]]
 #### line 7
 
 display instructions
@@ -262,7 +259,6 @@ FOR N = 1 TO 7000 : NEXT N
 
 
 
-[[line10]]
 #### line 10
 
 allocate string variables ("dimension")
@@ -349,7 +345,6 @@ FOR I = 0 TO 39 :
 
 
 
-[[line25]]
 #### line 25
 
 ``` visualbasic
