@@ -421,7 +421,7 @@ FOR I = 20 TO 34 STEP 2 :
 
 #### line 35
 ``` visualbasic
-      VLIN J, J+1 AT I :
+        VLIN J, J+1 AT I :
     NEXT J,
 I :
 ```
@@ -496,8 +496,8 @@ X = 19 : Y = RND(120) :
 
 Initialize ball movement.
 
-X movement:: V<0 means left, V>0 means right, ABS(V) is speed
-Y movement:: W<0 means up, W>0 means down, ABS(W) is speed/angle
+* X movement: V<0 means left, V>0 means right, ABS(V) is speed
+* Y movement: W<0 means up, W>0 means down, ABS(W) is speed/angle
 
 ``` visualbasic
 V = -1 : W = RND(5)-2 :
@@ -741,8 +741,7 @@ GOTO 50
 function to ask user for a color (enter at line 100).
 
 output:
-[horizontal]
-E:: the color that the user chose (0-15)
+* `E`: the color that the user chose (0-15)
 
 ``` visualbasic
 PRINT "INVALID.  REENTER";
@@ -922,21 +921,18 @@ GOTO 20
 function to move displayed paddle based on user control
 
 in/out:
-[horizontal]
-P:: on input, previous position; on output, current position (where position is Y coord of top-most pixel of paddle, 0-34)
+* `P`: on input, previous position; on output, current position (where position is Y coord of top-most pixel of paddle, 0-34)
 
 in:
-[horizontal]
-A:: background color
-D:: paddle color
-SW:: demo. mode (1 or 0)
+* `A `: background color
+* `D `: paddle color
+* `SW`: demo. mode (1 or 0)
 
 if in demo. mode, then also input:
-[horizontal]
-V:: ball X movement
-W:: ball Y movement
-X:: ball X position
-Y:: ball Y position
+* `V`: ball X movement
+* `W`: ball Y movement
+* `X`: ball X position
+* `Y`: ball Y position
 
 if in demo. mode, then go to line 220
 ``` visualbasic
@@ -955,7 +951,7 @@ PDL(0) paddle 0 -> 0 to 255
 Q = (PDL(0)-5)/6 :
 ```
 
-BUG: unnecessary check for +Q < 0+; acutally Q cannot be less than zero here
+BUG: unnecessary check for `Q < 0`; acutally Q cannot be less than zero here
 ``` visualbasic
 IF Q < 0 THEN Q = 0
 ```

@@ -38,7 +38,7 @@ disk2.s65: disk2.m4 asm.m4h
 check_SCRIPTS=unit_test.sh
 TESTS=$(check_SCRIPTS)
 
-.PROCIOUS: disk2.a65
+.PRECIOUS: disk2.a65
 
 unit_test.sh:
 	touch $@
