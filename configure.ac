@@ -2,7 +2,7 @@
 # Process this file with autoconf to produce a configure script.
 
 AC_PREREQ([2.61])
-AC_INIT([apple2sys],[1.1-SNAPSHOT])
+AC_INIT([apple2sys],[1.2.0])
 AC_CONFIG_AUX_DIR([build-aux])
 AC_CONFIG_SRCDIR([src/dos/system/common/rwts.m4])
 AM_INIT_AUTOMAKE([-Wall -Werror])
