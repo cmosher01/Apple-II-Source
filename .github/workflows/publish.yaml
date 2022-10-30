@@ -21,6 +21,11 @@ jobs:
           find . -name \*.a65 | xargs cp -v --parents -t ../apple2/
           cd -
           zip -r apple2sys apple2
+          mkdir apple2-src
+          cd src
+          find . -name \*.s65 | xargs cp -v --parents -t ../apple2-src/
+          cd -
+          zip -r apple2sys-src apple2-src
 
       - uses: "softprops/action-gh-release@v1"
         with:
