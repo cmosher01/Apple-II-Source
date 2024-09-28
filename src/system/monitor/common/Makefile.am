@@ -9,7 +9,7 @@ ZEROSEGS=-bd 0 -bb 0 -bz 0
 	$(M4) -E -I $(INCDIR) -I $(COMDIR) $(M4FLAGS) $< >$@
 
 .s65.o65:
-	$(XA65) -C -M -R -c -bt 0 $(ZERO_SEGS) -o $@ $(XA65FLAGS) $<
+	$(XA65) -C -MASM -XXA23 -R -c -bt 0 $(ZERO_SEGS) -o $@ $(XA65FLAGS) $<
 
 .o65.r65:
 	$(LDO65) -bt $(CODE_SEG) $(ZERO_SEGS) -o $@ $(LD65FLAGS) $^

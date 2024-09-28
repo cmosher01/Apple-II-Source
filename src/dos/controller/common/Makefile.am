@@ -12,7 +12,7 @@ ZERO_SEGS=-bd 0 -bb 0 -bz 0
 
 #arbitrary code seg start (-bt 2048) because -bt 0 tends to cause strange errors
 .s65.o65:
-	$(XA65) -C -M -R -c -bt 2048 $(ZERO_SEGS) -o $@ $(XA65FLAGS) $<
+	$(XA65) -C -MASM -XXA23 -R -c -bt 2048 $(ZERO_SEGS) -o $@ $(XA65FLAGS) $<
 
 .o65.r65:
 	$(LDO65) -bt $(CODE_SEG) $(ZERO_SEGS) -o $@ $(LD65FLAGS) $^
